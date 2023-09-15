@@ -73,11 +73,7 @@ window.onload = function() {
         "encoding": {
           "color": {
             "field": "Tier",
-            "type": "nominal",
-            "legend": {"values":["<1", "1-5", "5-10", "10-15", "15-20", "20-30", "30-40", "40-100", "100-500"]},
-            "scale": {
-                "range": ["white", "blue"],
-              },
+            "type": "ordinal",
           }
         }
       }
