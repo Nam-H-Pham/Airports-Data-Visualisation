@@ -15,26 +15,28 @@ window.onload = function() {
                     "feature": "countries"
                 }
             },
-            "projection": { "type": "mercator" },
-
-            "mark": "geoshape",
-            "encoding": {
-            "color": {
-                "value": "gray" // Use a single gray color for all countries
-            }
-        },
 
         "transform": [{
             "lookup": "id",
             "from": {
-              "data": {
-                "url": "map.csv"
-              },
-              "key": "id",
-              "fields": ["rate"]
+                "data": {
+                "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/map.csv"
+                },
+                "key": "id",
+                "fields": ["Tier"]
             }
-          }],
+            }],
+        
+        "projection": { "type": "mercator" },
 
+        "mark": "geoshape",
+
+        "encoding": {
+            "color": {
+                "value": "Tier", // Use a single gray color for all countries
+                "type": "quantitative"
+            }
+        },
 
         };
 
