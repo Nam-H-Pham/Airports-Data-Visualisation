@@ -73,7 +73,8 @@ window.onload = function() {
         "encoding": {
           "color": {
             "field": "Tier",
-            "type": "ordinal"
+            "type": "ordinal",
+            "sort": "descending",
           }
         }
       }
