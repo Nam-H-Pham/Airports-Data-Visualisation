@@ -3,10 +3,11 @@
 window.onload = function() {
     mapSpec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      
         "width": 800,
         "height": 800,
+      
         "layer": [
-
           {
             "data": {
               "url": "https://raw.githubusercontent.com/vega/vega-datasets/master/data/world-110m.json",
@@ -16,8 +17,8 @@ window.onload = function() {
               }
             },
             "projection": {
-                "type": "mercator"
-              },
+              "type": "mercator"
+            },
             "mark": {
               "type": "geoshape",
               "fill": "lightgray",
@@ -25,10 +26,10 @@ window.onload = function() {
             }
           },
 
+
           {
             "data": {
-              "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport_locations.csv",
-              "format": {"type": "csv", "parse": "auto"}
+              "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport_locations.csv"
             },
             "projection": {
               "type": "mercator"
@@ -49,6 +50,8 @@ window.onload = function() {
           }
         ]
       }
+      
+      
       
 
     // Embed the map specification in the "map" div
