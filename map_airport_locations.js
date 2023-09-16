@@ -27,7 +27,8 @@ window.onload = function() {
 
           {
             "data": {
-              "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport_locations.csv"
+              "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport_locations.csv",
+              "format": {"type": "csv", "parse": "auto"}
             },
             "projection": {
               "type": "mercator"
