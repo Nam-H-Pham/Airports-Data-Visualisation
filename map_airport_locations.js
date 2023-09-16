@@ -17,7 +17,7 @@ window.onload = function() {
               }
             },
             "projection": {
-              "type": "mercator"
+              "type": "equalEarth"
             },
             "mark": {
               "type": "geoshape",
@@ -32,7 +32,7 @@ window.onload = function() {
               "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport_locations.csv"
             },
             "projection": {
-              "type": "mercator"
+              "type": "equalEarth"
             },
             "mark": "circle",
             "encoding": {
@@ -44,7 +44,7 @@ window.onload = function() {
                 "field": "latitude",
                 "type": "quantitative"
               },
-              "size": {"value": 10},
+              "size": {"value": 6},
               "color": {"value": "steelblue"}
             }
           }
