@@ -151,9 +151,46 @@ window.onload = function() {
       ]
     }
 
+    Airport_Top_Countries_Spec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "A simple bar chart with embedded data.",
+      "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/top_countries.csv"},
+    
+      "width": 600,
+      "height": 400,
+    
+      "layer": [
+    
+        {
+          "mark": {"type": "bar", "width": 5, "color": "red"},
+          "encoding": {
+            "x": {"field": "Name", "type": "nominal", 
+                  "axis": {"labelAngle": 0},
+                  "sort": null
+                  },
+            "y": {"field": "Value", "type": "quantitative"}
+          }
+        },
+    
+        {
+              "mark": {"type": "circle", "size": 200, "color": "red"},
+              "encoding": {
+                "x": {"field": "Name", 
+                      "type": "ordinal",
+                      "sort": null
+                      },
+                "y": {"field": "Value", "type": "quantitative"}
+                },
+        },
+    
+      ]
+    }
+    
+
     // Embed the map specification in the "map" div
     vegaEmbed("#world-map-airport-locations", Airport_Locations_Map_Spec);
     vegaEmbed("#world-map-airports-per-million", Airports_Per_Million_Map_Spec);
     vegaEmbed("#radial-plot-airport-types", Airport_Type_Distribution_Spec);
     vegaEmbed("#scatter-plot-airport-continents", Airport_Continents_Spec);
+    vegaEmbed("#lollipop-plot-airport-top-countries", Airport_Top_Countries_Spec);
 }
