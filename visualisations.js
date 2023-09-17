@@ -96,7 +96,7 @@ window.onload = function() {
         }
       }
 
-    Airport_type_distribution_Spec = {
+    Airport_Type_Distribution_Spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "description": "A simple radial chart with embedded data.",
     
@@ -108,13 +108,13 @@ window.onload = function() {
     
       "params": [
         { 
-          "name": "Choice", 
-          "value": "North America",
-          "bind": {"input": "select", "options":  ["North America", "South America", "Europe", "Oceania", "Asia", "Africa", "Antarctica"]}
+          "name": "Continent", 
+          "value": "All",
+          "bind": {"input": "select", "options":  ["All", "Asia", "Africa", "Antarctica", "Europe", "Oceania", "North America", "South America"]}
         }
       ],
     
-      "transform": [{"filter": "datum.Continent == Choice"}],
+      "transform": [{"filter": "datum.Continent == Continent"}],
     
       "layer": [{
         "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}
@@ -132,10 +132,15 @@ window.onload = function() {
         }
       }
     }
+
+    Airport_Continents_Spec = {
+      
+    }
       
 
     // Embed the map specification in the "map" div
     vegaEmbed("#world-map-airport-locations", Airport_Locations_Map_Spec);
     vegaEmbed("#world-map-airports-per-million", Airports_Per_Million_Map_Spec);
-    vegaEmbed("#radial-plot-airport-types", Airport_type_distribution_Spec);
+    vegaEmbed("#radial-plot-airport-types", Airport_Type_Distribution_Spec);
+    vegaEmbed("#scatter-plot-airport-continents", Airport_Continents_Spec);
 }

@@ -1,0 +1,238 @@
+﻿Region,Name,Airports
+Africa,Zimbabwe,196
+Africa,Zambia,88
+Middle East,Yemen,57
+Middle East,West Bank,2
+Australia and Oceania,Wallis and Futuna,2
+Australia and Oceania,Wake Island,1
+Central America and the Caribbean,Virgin Islands,2
+East and Southeast Asia,Vietnam,45
+South America,Venezuela,444
+Australia and Oceania,Vanuatu,31
+Central Asia,Uzbekistan,53
+South America,Uruguay,133
+North America,United States,13513
+Europe,United Kingdom,460
+Middle East,United Arab Emirates,43
+Europe,Ukraine,215
+Africa,Uganda,47
+Australia and Oceania,Tuvalu,1
+Central America and the Caribbean,Turks and Caicos Islands,8
+Central Asia,Turkmenistan,26
+Middle East,Turkey,98
+Africa,Tunisia,29
+Central America and the Caribbean,Trinidad and Tobago,4
+Australia and Oceania,Tonga,6
+Africa,Togo,8
+East and Southeast Asia,Timor-Leste,6
+East and Southeast Asia,Thailand,101
+Africa,Tanzania,166
+Central Asia,Tajikistan,24
+East and Southeast Asia,Taiwan,37
+Middle East,Syria,90
+Europe,Switzerland,63
+Europe,Sweden,231
+Europe,Svalbard,4
+South America,Suriname,55
+Africa,Sudan,67
+South Asia,Sri Lanka,18
+East and Southeast Asia,Spratly Islands,8
+Europe,Spain,135
+Africa,South Sudan,89
+East and Southeast Asia,South Korea,111
+Africa,South Africa,407
+Africa,Somalia,52
+Australia and Oceania,Solomon Islands,36
+Europe,Slovenia,16
+Europe,Slovakia,35
+Central America and the Caribbean,Sint Maarten,1
+East and Southeast Asia,Singapore,9
+Africa,Sierra Leone,8
+Africa,Seychelles,14
+Europe,Serbia,26
+Africa,Senegal,20
+Middle East,Saudi Arabia,214
+Africa,Sao Tome and Principe,2
+Australia and Oceania,Samoa,4
+Central America and the Caribbean,Saint Vincent and the Grenadines,6
+North America,Saint Pierre and Miquelon,2
+Central America and the Caribbean,Saint Martin,1
+Central America and the Caribbean,Saint Lucia,2
+Central America and the Caribbean,Saint Kitts and Nevis,2
+Africa,"Saint Helena, Ascension, and Tristan da Cunha",2
+Central America and the Caribbean,Saint Barthelemy,1
+Africa,Rwanda,7
+Central Asia,Russia,1218
+Europe,Romania,45
+Africa,Republic Of The Congo,27
+Middle East,Qatar,6
+Central America and the Caribbean,Puerto Rico,29
+Europe,Portugal,64
+Europe,Poland,126
+East and Southeast Asia,Philippines,247
+South America,Peru,191
+South America,Paraguay,799
+East and Southeast Asia,Paracel Islands,1
+East and Southeast Asia,Papua New Guinea,561
+Central America and the Caribbean,Panama,117
+Australia and Oceania,Palau,3
+South Asia,Pakistan,151
+Middle East,Oman,132
+Europe,Norway,95
+Australia and Oceania,Northern Mariana Islands,5
+Europe,North Macedonia,10
+East and Southeast Asia,North Korea,82
+Australia and Oceania,Norfolk Island,1
+Australia and Oceania,Niue,1
+Africa,Nigeria,54
+Africa,Niger,30
+Central America and the Caribbean,Nicaragua,147
+Australia and Oceania,New Zealand,123
+Australia and Oceania,New Caledonia,25
+Europe,Netherlands,29
+South Asia,Nepal,47
+Australia and Oceania,Nauru,1
+Africa,Namibia,112
+Africa,Mozambique,98
+Africa,Morocco,62
+Central America and the Caribbean,Montserrat,1
+Europe,Montenegro,5
+East and Southeast Asia,Mongolia,44
+Europe,Moldova,7
+Australia and Oceania,Micronesia,6
+North America,Mexico,1714
+Africa,Mauritius,5
+Africa,Mauritania,30
+Australia and Oceania,Marshall Islands,15
+Europe,Malta,1
+Africa,Mali,25
+South Asia,Maldives,9
+East and Southeast Asia,Malaysia,114
+Africa,Malawi,32
+Africa,Madagascar,83
+East and Southeast Asia,Macau,1
+Europe,Luxembourg,2
+Europe,Lithuania,61
+Africa,Libya,146
+Africa,Liberia,29
+Africa,Lesotho,24
+Middle East,Lebanon,8
+Europe,Latvia,42
+East and Southeast Asia,Laos,41
+Central Asia,Kyrgyzstan,28
+Middle East,Kuwait,7
+Europe,Kosovo,6
+Australia and Oceania,Kiribati,19
+Africa,Kenya,197
+Central Asia,Kazakhstan,96
+Middle East,Jordan,18
+Europe,Jersey,1
+East and Southeast Asia,Japan,175
+Europe,Jan Mayen,1
+Central America and the Caribbean,Jamaica,28
+Europe,Italy,129
+Middle East,Israel,42
+Europe,Isle of Man,1
+Europe,Ireland,40
+Middle East,Iraq,102
+Middle East,Iran,319
+East and Southeast Asia,Indonesia,673
+South Asia,India,346
+Europe,Iceland,96
+Europe,Hungary,41
+East and Southeast Asia,Hong Kong,2
+Central America and the Caribbean,Honduras,103
+Central America and the Caribbean,Haiti,14
+South America,Guyana,117
+Africa,Guinea-Bissau,8
+Africa,Guinea,16
+Europe,Guernsey,2
+Central America and the Caribbean,Guatemala,291
+Australia and Oceania,Guam,5
+Central America and the Caribbean,Grenada,3
+North America,Greenland,15
+Europe,Greece,77
+Europe,Gibraltar,1
+Africa,Ghana,10
+Europe,Germany,539
+Middle East,Georgia,22
+Middle East,Gaza Strip,1
+Africa,Gambia,1
+Africa,Gabon,44
+Antarctica,French Southern and Antarctic Lands,4
+Australia and Oceania,French Polynesia,54
+Europe,France,464
+Europe,Finland,148
+Australia and Oceania,Fiji,28
+Europe,Faroe Islands,1
+South America,Falkland Islands (Islas Malvinas),7
+Africa,Ethiopia,57
+Africa,Eswatini,14
+Europe,Estonia,18
+Africa,Eritrea,13
+Africa,Equatorial Guinea,7
+Central America and the Caribbean,El Salvador,68
+Africa,Egypt,83
+South America,Ecuador,432
+Africa,Dr Congo,198
+Central America and the Caribbean,Dominican Republic,36
+Central America and the Caribbean,Dominica,2
+Africa,Djibouti,13
+Europe,Denmark,80
+Europe,Czechia,128
+Europe,Cyprus,15
+Central America and the Caribbean,Curacao,1
+Central America and the Caribbean,Cuba,133
+Europe,Croatia,69
+Africa,Cote d'Ivoire,27
+Central America and the Caribbean,Costa Rica,161
+Australia and Oceania,Cook Islands,11
+Africa,Comoros,4
+South America,Colombia,836
+Australia and Oceania,Cocos (Keeling) Islands,1
+Australia and Oceania,Christmas Island,1
+East and Southeast Asia,China,507
+South America,Chile,481
+Africa,Chad,59
+Africa,Central African Republic,39
+Central America and the Caribbean,Cayman Islands,3
+North America,Canada,1467
+Africa,Cameroon,33
+East and Southeast Asia,Cambodia,16
+Africa,Cabo Verde,9
+Africa,Burundi,7
+East and Southeast Asia,Burma,64
+Africa,Burkina Faso,23
+Europe,Bulgaria,68
+East and Southeast Asia,Brunei,1
+Central America and the Caribbean,British Virgin Islands,4
+South Asia,British Indian Ocean Territory,1
+South America,Brazil,4093
+Africa,Botswana,74
+Europe,Bosnia and Herzegovina,24
+South America,Bolivia,855
+South Asia,Bhutan,3
+North America,Bermuda,1
+Africa,Benin,6
+Central America and the Caribbean,Belize,47
+Europe,Belgium,41
+Europe,Belarus,65
+Central America and the Caribbean,Barbados,1
+South Asia,Bangladesh,18
+Middle East,Bahrain,4
+Central America and the Caribbean,Bahamas,54
+Middle East,Azerbaijan,23
+Europe,Austria,50
+Australia and Oceania,Australia,418
+Central America and the Caribbean,Aruba,1
+Middle East,Armenia,7
+South America,Argentina,916
+Central America and the Caribbean,Antigua and Barbuda,3
+Antarctica,Antarctica,17
+Central America and the Caribbean,Anguilla,1
+Africa,Angola,102
+Australia and Oceania,American Samoa,3
+Africa,Algeria,149
+Europe,Albania,3
+Europe,Akrotiri,1
+South Asia,Afghanistan,46
