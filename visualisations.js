@@ -97,28 +97,45 @@ window.onload = function() {
       }
 
     Airport_type_distribution_Spec = {
-        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-        "description": "A simple radial chart with embedded data.",
-        "data": {
-          "values": [12, 23, 47, 6, 52, 19]
-        },
-        "layer": [{
-          "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}
-        },{
-          "mark": {"type": "text", "radiusOffset": 10},
-          "encoding": {
-            "text": {"field": "data", "type": "quantitative"}
-          }
-        }],
-        "encoding": {
-          "theta": {"field": "data", "type": "quantitative", "stack": true},
-          "radius": {"field": "data", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
-          "color": {"field": "data", "type": "nominal", "legend": null}
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "A simple radial chart with embedded data.",
+    
+      "width": 400,
+      "height": 400,
+    
+    
+      "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport_types.csv"},
+    
+      "params": [
+        { 
+          "name": "Choice", 
+          "value": "North America",
+          "bind": {"input": "select", "options":  ["North America", "South America", "Europe", "Oceania", "Asia", "Africa", "Antarctica"]}
         }
+      ],
+    
+      "transform": [{"filter": "datum.Continent == Choice"}],
+    
+      "layer": [{
+        "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}
+      },{
+        "mark": {"type": "text", "radiusOffset": 10},
+        "encoding": {
+          "text": {"field": "Count", "type": "quantitative"}
+        }
+      }],
+      "encoding": {
+        "theta": {"field": "Count", "type": "quantitative", "stack": true},
+        "radius": {"field": "Count", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
+        "color": {"field": "Type", "type": "nominal", 
+        "legend": {"values": "Type"}
+        }
+      }
     }
       
 
     // Embed the map specification in the "map" div
     vegaEmbed("#world-map-airport-locations", Airport_Locations_Map_Spec);
     vegaEmbed("#world-map-airports-per-million", Airports_Per_Million_Map_Spec);
+    vegaEmbed("#radial-plot-airport-types", Airport_type_distribution_Spec);
 }

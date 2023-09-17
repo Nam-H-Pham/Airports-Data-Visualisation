@@ -6,6 +6,7 @@ Europe,large airport,116
 Asia,large airport,142
 Africa,large airport,48
 Antarctica,large airport,0
+All,large airport,465
 South America,medium airport,403
 Oceania,medium airport,325
 North America,medium airport,1344
@@ -13,6 +14,7 @@ Europe,medium airport,917
 Asia,medium airport,1291
 Antarctica,medium airport,5
 Africa,medium airport,468
+All,medium airport,4753
 South America,small airport,7436
 Oceania,small airport,2843
 North America,small airport,18034
@@ -20,6 +22,7 @@ Europe,small airport,5729
 Asia,small airport,2610
 Antarctica,small airport,25
 Africa,small airport,3060
+All,small airport,39737
 South America,heliport,2190
 Oceania,heliport,485
 North America,heliport,8866
@@ -27,6 +30,7 @@ Europe,heliport,1789
 Asia,heliport,5850
 Antarctica,heliport,9
 Africa,heliport,210
+All,heliport,19399
 South America,closed,401
 Oceania,closed,227
 North America,closed,7551
@@ -34,3 +38,4 @@ Europe,closed,1326
 Asia,closed,1102
 Antarctica,closed,5
 Africa,closed,186
+All,closed,10798
