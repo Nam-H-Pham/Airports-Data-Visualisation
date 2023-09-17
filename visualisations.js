@@ -185,6 +185,96 @@ window.onload = function() {
     
       ]
     }
+
+    Airport_Routes_Map_Spec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "An interactive visualization of connections among major U.S. airports in 2008. Based on a U.S. airports example by Mike Bostock.",
+      "layer": [
+        {
+          "mark": {
+            "type": "geoshape",
+            "fill": "#ddd",
+            "stroke": "#fff",
+            "strokeWidth": 1
+          },
+          "data": {
+            "url": "https://raw.githubusercontent.com/vega/vega-datasets/master/data/world-110m.json",
+            "format": {"type": "topojson", "feature": "countries"}
+          }
+        },
+        {
+          "mark": {"type": "rule", "color": "#000", "opacity": 0.35},
+          "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport-routes.csv"},
+          "transform": [
+            {"filter": {"param": "org", "empty": false}},
+            {
+              "lookup": "origin",
+              "from": {
+                "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport-routes-locations.csv"},
+                "key": "iata",
+                "fields": ["latitude", "longitude"]
+              }
+            },
+            {
+              "lookup": "destination",
+              "from": {
+                "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport-routes-locations.csv"},
+                "key": "iata",
+                "fields": ["latitude", "longitude"]
+              },
+              "as": ["lat2", "lon2"]
+            }
+          ],
+          "encoding": {
+            "latitude": {"field": "latitude"},
+            "longitude": {"field": "longitude"},
+            "latitude2": {"field": "lat2"},
+            "longitude2": {"field": "lon2"}
+          }
+        },
+        {
+          "mark": {"type": "circle"},
+          "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport-routes.csv"},
+          "transform": [
+            {"aggregate": [{"op": "count", "as": "routes"}], "groupby": ["origin"]},
+            {
+              "lookup": "origin",
+              "from": {
+                "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport-routes-locations.csv"},
+                "key": "iata",
+                "fields": ["state", "latitude", "longitude"]
+              }
+            }
+          ],
+          "params": [{
+            "name": "org",
+            "select": {
+              "type": "point",
+              "on": "mouseover",
+              "nearest": true,
+              "fields": ["origin"]
+            }
+          }],
+          "encoding": {
+            "latitude": {"field": "latitude"},
+            "longitude": {"field": "longitude"},
+            "size": {
+              "field": "routes",
+              "type": "quantitative",
+              "legend": null
+            },
+            "order": {
+              "field": "routes",
+              "sort": "descending"
+            },
+          }
+        }
+      ],
+      "projection": {"type": "equalEarth"},
+      "width": 900,
+      "height": 500
+    }
+    
     
 
     // Embed the map specification in the "map" div
@@ -193,4 +283,5 @@ window.onload = function() {
     vegaEmbed("#radial-plot-airport-types", Airport_Type_Distribution_Spec);
     vegaEmbed("#scatter-plot-airport-continents", Airport_Continents_Spec);
     vegaEmbed("#lollipop-plot-airport-top-countries", Airport_Top_Countries_Spec);
+    vegaEmbed("#world-map-airports-routes", Airport_Routes_Map_Spec);
 }
