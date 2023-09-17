@@ -166,9 +166,10 @@ window.onload = function() {
           "encoding": {
             "x": {"field": "Name", "type": "nominal", 
                   "axis": {"labelAngle": 0},
-                  "sort": null
+                  "sort": null,
+                  "title": "Country"
                   },
-            "y": {"field": "Value", "type": "quantitative"}
+            "y": {"field": "Value", "type": "quantitative", "title": "Number of Airports"}
           }
         },
     
