@@ -80,7 +80,7 @@ window.onload = function() {
           "type": "mercator"
         },
         
-        "mark": "geoshape",
+        "mark": {"type": "geoshape"},
         "encoding": {
           "color": {
             "field": "Tier",
@@ -91,8 +91,8 @@ window.onload = function() {
                 "labelExpr": "datum.label == '1' ? '<1': datum.label == '2' ? '1-5' : datum.label == '3' ? '5-10' : datum.label == '4' ? '10-15' : datum.label == '5' ? '15-20' : datum.label == '6' ? '20-30' : datum.label == '7' ? '30-40' : datum.label == '8' ? '40-100' : datum.label == '9' ? '100-500' : datum.label == '10' ? '500-1000' : '>1000'",
               },
 
-            "bin": true
-          }
+            "bin": true,
+          },
         }
       }
 
