@@ -5,7 +5,7 @@ window.onload = function() {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       
         "width": 800,
-        "height": 800,
+        "height": 400,
       
         "layer": [
           {
@@ -29,7 +29,7 @@ window.onload = function() {
 
           {
             "data": {
-              "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport_locations.csv"
+              "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport_locations.csv"
             },
             "projection": {
               "type": "equalEarth"
@@ -54,7 +54,7 @@ window.onload = function() {
     Airports_Per_Million_Map_Spec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
         "width": 800,
-        "height": 800,
+        "height": 600,
         "data": {
           "url": "https://raw.githubusercontent.com/vega/vega-datasets/master/data/world-110m.json",
           "format": {
@@ -68,7 +68,7 @@ window.onload = function() {
 
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airports_per_million.csv"
+              "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airports_per_million.csv"
             },
             "key": "id",
             "fields": ["Tier"]
@@ -104,7 +104,7 @@ window.onload = function() {
       "height": 400,
     
     
-      "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport_types.csv"},
+      "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport_types.csv"},
     
       "params": [
         { 
@@ -135,8 +135,8 @@ window.onload = function() {
 
     Airport_Continents_Spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
-      "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airports_continents.csv"},
+      "description": "A scatterplot showing different types of airports in different continents.",
+      "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airports_continents.csv"},
 
       "width": 600,
       "height": 400,
@@ -154,10 +154,10 @@ window.onload = function() {
     Airport_Top_Countries_Spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "description": "A simple bar chart with embedded data.",
-      "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/top_countries.csv"},
+      "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/top_countries.csv"},
     
       "width": 600,
-      "height": 400,
+      "height": 300,
     
       "layer": [
     
@@ -204,13 +204,13 @@ window.onload = function() {
         },
         {
           "mark": {"type": "rule", "color": "#000", "opacity": 0.35},
-          "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport-routes.csv"},
+          "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport-routes.csv"},
           "transform": [
             {"filter": {"param": "org", "empty": false}},
             {
               "lookup": "origin",
               "from": {
-                "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport-routes-locations.csv"},
+                "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport-routes-locations.csv"},
                 "key": "iata",
                 "fields": ["latitude", "longitude"]
               }
@@ -218,7 +218,7 @@ window.onload = function() {
             {
               "lookup": "destination",
               "from": {
-                "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport-routes-locations.csv"},
+                "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport-routes-locations.csv"},
                 "key": "iata",
                 "fields": ["latitude", "longitude"]
               },
@@ -234,13 +234,13 @@ window.onload = function() {
         },
         {
           "mark": {"type": "circle"},
-          "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport-routes.csv"},
+          "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport-routes.csv"},
           "transform": [
             {"aggregate": [{"op": "count", "as": "routes"}], "groupby": ["origin"]},
             {
               "lookup": "origin",
               "from": {
-                "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airport-routes-locations.csv"},
+                "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport-routes-locations.csv"},
                 "key": "iata",
                 "fields": ["state", "latitude", "longitude"]
               }
