@@ -134,9 +134,22 @@ window.onload = function() {
     }
 
     Airport_Continents_Spec = {
-      
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
+      "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/airports_continents.csv"},
+
+      "width": 600,
+      "height": 400,
+    
+      "layer": [
+        {
+          "mark": "point",
+          "encoding": {
+            "x": {"field": "Region", "type": "ordinal"},
+            "y": {"field": "Airports", "type": "quantitative"}}
+        },
+      ]
     }
-      
 
     // Embed the map specification in the "map" div
     vegaEmbed("#world-map-airport-locations", Airport_Locations_Map_Spec);
