@@ -45,7 +45,7 @@ window.onload = function() {
                 "type": "quantitative"
               },
               "size": {"value": 6},
-              "color": {"value": "#217eb6"}
+              "color": {"value": "#33a4c1"}
             }
           }
         ]
@@ -269,6 +269,7 @@ window.onload = function() {
               "field": "routes",
               "sort": "descending"
             },
+            "color": {"value": "#33a4c1"}
           }
         }
       ],
