@@ -45,7 +45,7 @@ window.onload = function() {
                 "type": "quantitative"
               },
               "size": {"value": 6},
-              "color": {"value": "steelblue"}
+              "color": {"value": "#217eb6"}
             }
           }
         ]
@@ -163,7 +163,7 @@ window.onload = function() {
       "layer": [
     
         {
-          "mark": {"type": "bar", "width": 5, "color": "red"},
+          "mark": {"type": "bar", "width": 5, "color": "#d8b36a"},
           "encoding": {
             "x": {"field": "Name", "type": "nominal", 
                   "axis": {"labelAngle": 0},
@@ -175,7 +175,7 @@ window.onload = function() {
         },
     
         {
-              "mark": {"type": "circle", "size": 200, "color": "red"},
+              "mark": {"type": "circle", "size": 200, "color": "#d8b36a"},
               "encoding": {
                 "x": {"field": "Name", 
                       "type": "ordinal",
@@ -276,7 +276,6 @@ window.onload = function() {
       "width": 900,
       "height": 500
     }
-    
     
 
     // Embed the map specification in the "map" div
