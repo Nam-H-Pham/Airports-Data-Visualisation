@@ -53,8 +53,8 @@ window.onload = function() {
 
     Airports_Per_Million_Map_Spec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-        "width": 800,
-        "height": 600,
+        "width": 600,
+        "height": 400,
         "data": {
           "url": "https://raw.githubusercontent.com/vega/vega-datasets/master/data/world-110m.json",
           "format": {
@@ -77,7 +77,7 @@ window.onload = function() {
         }],
         
         "projection": {
-          "type": "mercator"
+          "type": "equalEarth"
         },
         
         "mark": {"type": "geoshape"},
@@ -100,8 +100,9 @@ window.onload = function() {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "description": "A simple radial chart with embedded data.",
     
-      "width": 400,
-      "height": 400,
+      "width": 300,
+      "height": 300,
+      "background": "#f4f4f4",
     
     
       "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport_types.csv"},
