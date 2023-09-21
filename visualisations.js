@@ -8,6 +8,21 @@ window.onload = function() {
         "height": 400,
       
         "layer": [
+
+          {
+            "data": {"sphere": true},
+            "mark": {"type": "geoshape", "fill": "aliceblue"}
+          },
+          
+
+          {
+            "data": {"graticule": {"stepMinor": [15, 15]}},
+            "mark": "geoshape",
+            "encoding": {
+              "color": {"value": "#cccccc"}
+            }
+          },
+
           {
             "data": {
               "url": "https://raw.githubusercontent.com/vega/vega-datasets/master/data/world-110m.json",
@@ -25,7 +40,7 @@ window.onload = function() {
               "stroke": "white"
             }
           },
-
+            
 
           {
             "data": {
@@ -45,56 +60,82 @@ window.onload = function() {
                 "type": "quantitative"
               },
               "size": {"value": 6},
-              "color": {"value": "#33a4c1"}
+              "color": {"value": "steelblue"}
             }
           }
         ]
       }
 
     Airports_Per_Million_Map_Spec = {
-        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-        "width": 600,
-        "height": 400,
-        "data": {
-          "url": "https://raw.githubusercontent.com/vega/vega-datasets/master/data/world-110m.json",
-          "format": {
-            "type": "topojson",
-            "feature": "countries"
-          }
-        },
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "title": {
+        "text": "Airports Per One Million People 2023",
+        "anchor": "start"
+      },
 
-        "transform": [{
-          "lookup": "id",
+      "width": 600,
+      "height": 400,
 
-          "from": {
-            "data": {
-              "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airports_per_million.csv"
-            },
-            "key": "id",
-            "fields": ["Tier"]
-          }
-
-        }],
-        
-        "projection": {
-          "type": "equalEarth"
-        },
-        
-        "mark": {"type": "geoshape"},
-        "encoding": {
-          "color": {
-            "field": "Tier",
-            "title": "Airports Per One Million People",
-            "type": "quantitative",
-
-            "legend": {
-                "labelExpr": "datum.label == '1' ? '<1': datum.label == '2' ? '1-5' : datum.label == '3' ? '5-10' : datum.label == '4' ? '10-15' : datum.label == '5' ? '15-20' : datum.label == '6' ? '20-30' : datum.label == '7' ? '30-40' : datum.label == '8' ? '40-100' : datum.label == '9' ? '100-500' : datum.label == '10' ? '500-1000' : '>1000'",
-              },
-
-            "bin": true,
-          },
+      "data": {
+        "url": "https://raw.githubusercontent.com/vega/vega-datasets/master/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
         }
-      }
+      },
+
+      "projection": {
+        "type": "equalEarth"
+      },
+
+
+      "transform": [{
+        "lookup": "id",
+
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airports_per_million.csv"
+          },
+          "key": "id",
+          "fields": ["Tier"]
+        }
+
+      }],
+
+      "layer": [
+
+        {
+          "data": {"sphere": true},
+          "mark": {"type": "geoshape", "fill": "aliceblue"}
+        },
+        
+        {
+          "data": {"graticule": {"stepMinor": [15, 15]}},
+          "mark": "geoshape",
+          "encoding": {
+            "color": {"value": "#cccccc"}
+          }
+        },
+
+        {
+          "mark": {"type": "geoshape"},
+          "encoding": {
+            "color": {
+              "field": "Tier",
+              "title": "Airports Per One Million People",
+              "type": "quantitative",
+
+              "legend": {
+                  "labelExpr": "datum.label == '1' ? '<1': datum.label == '2' ? '1-5' : datum.label == '3' ? '5-10' : datum.label == '4' ? '10-15' : datum.label == '5' ? '15-20' : datum.label == '6' ? '20-30' : datum.label == '7' ? '30-40' : datum.label == '8' ? '40-100' : datum.label == '9' ? '100-500' : datum.label == '10' ? '500-1000' : '>1000'",
+                },
+
+              "bin": true,
+            },
+          }
+        }
+      ]
+}
+
 
     Airport_Type_Distribution_Spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -192,6 +233,20 @@ window.onload = function() {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "description": "An interactive visualization of connections among major U.S. airports in 2008. Based on a U.S. airports example by Mike Bostock.",
       "layer": [
+
+        {
+          "data": {"sphere": true},
+          "mark": {"type": "geoshape", "fill": "aliceblue"}
+        },
+
+        {
+          "data": {"graticule": {"stepMinor": [15, 15]}},
+          "mark": "geoshape",
+          "encoding": {
+            "color": {"value": "#cccccc"}
+          }
+        },
+
         {
           "mark": {
             "type": "geoshape",
@@ -269,7 +324,7 @@ window.onload = function() {
               "field": "routes",
               "sort": "descending"
             },
-            "color": {"value": "#33a4c1"}
+            "color": {"value": "steelblue"},
           }
         }
       ],
