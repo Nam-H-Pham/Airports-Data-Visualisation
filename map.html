@@ -6,24 +6,88 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-  <script src="visualisations.js"></script>
   
 </head>
 <body>
 
   <center><div id="world-map-airports-per-million"></div></center>
   
-  <!-- <div id="world-map-airports-per-million"></div> -->
-  <!-- <br>
-  <div id="world-map-airport-locations"></div>
-  <br>
-  <div id="radial-plot-airport-types"></div>
-  <br>
-  <div id="scatter-plot-airport-continents"></div>
-  <br>
-  <div id="lollipop-plot-airport-top-countries"></div>
-  <br>
-  <div id="world-map-airports-routes"></div> -->
+  <script>
+    Airports_Per_Million_Map_Spec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "title": {
+        "text": "Numer of Airports Per One Million People Across Countries 2023",
+        "anchor": "start"
+      },
+
+      "width": 800,
+      "height": 500,
+
+      "data": {
+        "url": "https://raw.githubusercontent.com/vega/vega-datasets/master/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+
+      "projection": {
+        "type": "equalEarth"
+      },
+
+
+      "transform": [{
+        "lookup": "id",
+
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airports_per_million.csv"
+          },
+          "key": "id",
+          "fields": ["Tier", "Iso Code", "Airports Per Million"]
+        }
+
+      }],
+
+      "layer": [
+
+        {
+          "data": {"sphere": true},
+          "mark": {"type": "geoshape", "fill": "aliceblue"}
+        },
+        
+        {
+          "data": {"graticule": {"stepMinor": [15, 15]}},
+          "mark": "geoshape",
+          "encoding": {
+            "color": {"value": "#cccccc"}
+          }
+        },
+
+        {
+          "mark": {"type": "geoshape", "stroke": "#474747"},
+          "encoding": {
+            "color": {
+              "field": "Tier",
+              "title": "Airports Per One Million People",
+              "type": "quantitative",
+
+              "legend": {
+                  "labelExpr": "datum.label == '1' ? '<1': datum.label == '2' ? '1-5' : datum.label == '3' ? '5-10' : datum.label == '4' ? '10-15' : datum.label == '5' ? '15-20' : datum.label == '6' ? '20-30' : datum.label == '7' ? '30-40' : datum.label == '8' ? '40-100' : datum.label == '9' ? '100-500' : datum.label == '10' ? '500-1000' : '<1'",
+                },
+
+              "bin": true,
+            },
+            "tooltip": [
+                          {"field": "Iso Code", "type": "nominal"},
+                          {"field": "Airports Per Million", "type": "quantitative", "format": ".2f"}
+                        ]
+          }
+        }
+      ]
+}
+    vegaEmbed("#world-map-airports-per-million", Airports_Per_Million_Map_Spec);
+  </script>
 
   
 </body>

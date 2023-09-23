@@ -118,7 +118,7 @@ window.onload = function() {
         },
 
         {
-          "mark": {"type": "geoshape"},
+          "mark": {"type": "geoshape", "stroke": "black"},
           "encoding": {
             "color": {
               "field": "Tier",
