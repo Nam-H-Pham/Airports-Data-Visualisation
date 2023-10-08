@@ -14,12 +14,20 @@ window.onload = function() {
             "mark": {"type": "geoshape", "fill": "aliceblue"}
           },
           
-
           {
             "data": {"graticule": {"stepMinor": [15, 15]}},
             "mark": "geoshape",
             "encoding": {
               "color": {"value": "#cccccc"}
+            }
+          },
+  
+          {
+            "mark": {"type": "geoshape", "stroke": "black"},
+            "encoding": {
+              "color": { 
+                "value": "gray",
+              },
             }
           },
 
@@ -37,7 +45,7 @@ window.onload = function() {
             "mark": {
               "type": "geoshape",
               "fill": "lightgray",
-              "stroke": "white"
+              "stroke": "black"
             }
           },
             
@@ -59,8 +67,14 @@ window.onload = function() {
                 "field": "latitude",
                 "type": "quantitative"
               },
-              "size": {"value": 6},
-              "color": {"value": "steelblue"}
+              "size": {"value": 7},
+              "color": {"value": "steelblue"},
+
+              "tooltip": [
+                {"field": "Id", "type": "nominal"},
+                {"field": "latitude", "type": "quantitative"},
+                {"field": "longitude", "type": "quantitative"}
+              ]
             }
           }
         ]
@@ -97,7 +111,7 @@ window.onload = function() {
             "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airports_per_million.csv"
           },
           "key": "id",
-          "fields": ["Tier"]
+          "fields": ["Tier", "Iso Code", "Airports Per Million"]
         }
 
       }],
@@ -120,6 +134,15 @@ window.onload = function() {
         {
           "mark": {"type": "geoshape", "stroke": "black"},
           "encoding": {
+            "color": { 
+              "value": "gray",
+            },
+          }
+        },
+
+        {
+          "mark": {"type": "geoshape", "stroke": "black"},
+          "encoding": {
             "color": {
               "field": "Tier",
               "title": "Airports Per One Million People",
@@ -131,9 +154,15 @@ window.onload = function() {
 
               "bin": true,
             },
+
+            "tooltip": [
+              {"field": "Iso Code", "type": "nominal"},
+
+              {"field": "Airports Per Million", "type": "quantitative", "format": ".2f"}
+            ]
           }
         }
-      ]
+      ],
 }
 
 
@@ -152,25 +181,36 @@ window.onload = function() {
         { 
           "name": "Continent", 
           "value": "All",
-          "bind": {"input": "select", "options":  ["All", "Asia", "Africa", "Antarctica", "Europe", "Oceania", "North America", "South America"]}
+          "bind": {"name": "Continent: ", "input": "select", "options":  ["All", "Asia", "Africa", "Antarctica", "Europe", "Oceania", "North America", "South America"]},
+
         }
       ],
     
       "transform": [{"filter": "datum.Continent == Continent"}],
     
-      "layer": [{
-        "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}
-      },{
-        "mark": {"type": "text", "radiusOffset": 10},
-        "encoding": {
-          "text": {"field": "Count", "type": "quantitative"}
-        }
-      }],
+      "layer": [
+        {
+        "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"},
+        "encoding": {"tooltip": [
+                      {"field": "Type", "type": "nominal", "title": "Airport Type"},
+                      {"field": "Count", "type": "quantitative", "title": "Number of Airports"}
+                    ]}
+        },
+
+        {
+          "mark": {"type": "text", "radiusOffset": 30},
+          "encoding": {
+            "text": {"field": "Count", "type": "quantitative"}
+          }
+        },
+      ],
+
       "encoding": {
         "theta": {"field": "Count", "type": "quantitative", "stack": true},
         "radius": {"field": "Count", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
         "color": {"field": "Type", "type": "nominal", 
-        "legend": {"values": "Type"}
+        "legend": {"values": "Type"},
+
         }
       }
     }
@@ -232,13 +272,16 @@ window.onload = function() {
     Airport_Routes_Map_Spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "description": "An interactive visualization of connections among major U.S. airports in 2008. Based on a U.S. airports example by Mike Bostock.",
+      "width": 600,
+      "height": 400,
+      
       "layer": [
 
         {
           "data": {"sphere": true},
           "mark": {"type": "geoshape", "fill": "aliceblue"}
         },
-
+        
         {
           "data": {"graticule": {"stepMinor": [15, 15]}},
           "mark": "geoshape",
@@ -250,8 +293,8 @@ window.onload = function() {
         {
           "mark": {
             "type": "geoshape",
-            "fill": "#ddd",
-            "stroke": "#fff",
+            "fill": "lightgray",
+            "stroke": "black",
             "strokeWidth": 1
           },
           "data": {
@@ -260,7 +303,52 @@ window.onload = function() {
           }
         },
         {
-          "mark": {"type": "rule", "color": "#000", "opacity": 0.35},
+          "mark": {"type": "circle"},
+          "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport-routes.csv"},
+          "transform": [
+            {"aggregate": [{"op": "count", "as": "routes"}], "groupby": ["origin"]},
+            {
+              "lookup": "origin",
+              "from": {
+                "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport-routes-locations.csv"},
+                "key": "iata",
+                "fields": ["id", "latitude", "longitude", "iata"]
+              }
+            }
+          ],
+          "params": [{
+            "name": "org",
+            "select": {
+              "type": "point",
+              "on": "mouseover",
+              "nearest": true,
+              "fields": ["origin"]
+            },
+            "bind": {"input": "text", "placeholder": "SYD", "name": "Airport by IATA Code: "}
+
+          }],
+          "encoding": {
+            "latitude": {"field": "latitude"},
+            "longitude": {"field": "longitude"},
+            "size": {
+              "field": "routes",
+              "type": "quantitative",
+              "legend": null
+            },
+            "order": {
+              "field": "routes",
+              "sort": "descending"
+            },
+            "color": {"value": "steelblue"},
+            "tooltip": [
+              {"field": "iata", "type": "nominal", "title": "Airport"},
+              {"field": "routes", "type": "quantitative", "title": "Number of routes"}
+            ]
+          }
+        },
+
+        {
+          "mark": {"type": "rule", "color": "red", "opacity": 0.35},
           "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport-routes.csv"},
           "transform": [
             {"filter": {"param": "org", "empty": false}},
@@ -289,44 +377,6 @@ window.onload = function() {
             "longitude2": {"field": "lon2"}
           }
         },
-        {
-          "mark": {"type": "circle"},
-          "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport-routes.csv"},
-          "transform": [
-            {"aggregate": [{"op": "count", "as": "routes"}], "groupby": ["origin"]},
-            {
-              "lookup": "origin",
-              "from": {
-                "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport-routes-locations.csv"},
-                "key": "iata",
-                "fields": ["state", "latitude", "longitude"]
-              }
-            }
-          ],
-          "params": [{
-            "name": "org",
-            "select": {
-              "type": "point",
-              "on": "mouseover",
-              "nearest": true,
-              "fields": ["origin"]
-            }
-          }],
-          "encoding": {
-            "latitude": {"field": "latitude"},
-            "longitude": {"field": "longitude"},
-            "size": {
-              "field": "routes",
-              "type": "quantitative",
-              "legend": null
-            },
-            "order": {
-              "field": "routes",
-              "sort": "descending"
-            },
-            "color": {"value": "steelblue"},
-          }
-        }
       ],
       "projection": {"type": "equalEarth"},
       "width": 900,
