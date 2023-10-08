@@ -200,7 +200,10 @@ window.onload = function() {
         {
           "mark": {"type": "text", "radiusOffset": 30},
           "encoding": {
-            "text": {"field": "Count", "type": "quantitative"}
+                        "text": {"field": "Count", 
+                        "type": "quantitative", 
+                        "format": ",.2s"
+                      }
           }
         },
       ],
