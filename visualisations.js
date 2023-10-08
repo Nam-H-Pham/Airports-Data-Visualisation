@@ -202,7 +202,7 @@ window.onload = function() {
         "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"},
         "encoding": {"tooltip": [
                       {"field": "Type", "type": "nominal", "title": "Airport Type"},
-                      {"field": "Count", "type": "quantitative", "title": "Number of Airports"}
+                      {"field": "Count", "type": "quantitative", "title": "Number of Airports", "format": ",.2s"}
                     ]}
         },
 
