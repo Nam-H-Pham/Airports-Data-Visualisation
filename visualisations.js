@@ -358,7 +358,7 @@ window.onload = function() {
             },
             "color": {"value": "steelblue"},
             "tooltip": [
-              {"field": "iata", "type": "nominal", "title": "Airport"},
+              {"field": "iata", "type": "nominal", "title": "Airport IATA Code"},
               {"field": "routes", "type": "quantitative", "title": "Number of routes"}
             ]
           }
