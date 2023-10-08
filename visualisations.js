@@ -3,6 +3,10 @@
 window.onload = function() {
     Airport_Locations_Map_Spec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "title": {
+          "text": "Airport Locations 2023",
+          "anchor": "start"
+        },
       
         "width": 800,
         "height": 400,
@@ -169,9 +173,14 @@ window.onload = function() {
     Airport_Type_Distribution_Spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "description": "A simple radial chart with embedded data.",
+
+      "title": {
+        "text": "Airport Types Across Continents 2023",
+        "anchor": "start"
+      },
     
       "width": 300,
-      "height": 300,
+      "height": 350,
       "background": "#f4f4f4",
     
     
@@ -277,6 +286,11 @@ window.onload = function() {
       "description": "An interactive visualization of connections among major U.S. airports in 2008. Based on a U.S. airports example by Mike Bostock.",
       "width": 600,
       "height": 400,
+
+      "title": {
+        "text": "Global Airport Routes 2023",
+        "anchor": "start"
+      },
       
       "layer": [
 
