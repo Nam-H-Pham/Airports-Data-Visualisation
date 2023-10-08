@@ -175,7 +175,7 @@ window.onload = function() {
       "description": "A simple radial chart with embedded data.",
 
       "title": {
-        "text": "Airport Types Across Continents 2023",
+        "text": "Number of Airports by Type Per Continent 2023",
         "anchor": "start"
       },
     
