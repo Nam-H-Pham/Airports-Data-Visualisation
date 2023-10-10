@@ -8,7 +8,7 @@ window.onload = function() {
           "anchor": "start"
         },
       
-        "width": 800,
+        "width": 700,
         "height": 400,
       
         "layer": [
@@ -72,7 +72,18 @@ window.onload = function() {
                 "type": "quantitative"
               },
               "size": {"value": 7},
-              "color": {"value": "steelblue"},
+              "color": {
+                  "value": "steelblue",
+                  "datum": "Id",
+                  "legend": {
+                    
+                    "title": "Legend",
+                    "orient": "right",
+                    "titleAnchor": "middle",
+                    "labelExpr": "datum.label == 'Id' ? 'Airport': 'id'",
+
+                  }
+              },
 
               "tooltip": [
                 {"field": "Id", "type": "nominal"},
@@ -91,7 +102,7 @@ window.onload = function() {
         "anchor": "start"
       },
 
-      "width": 600,
+      "width": 700,
       "height": 400,
 
       "data": {
@@ -149,11 +160,12 @@ window.onload = function() {
           "encoding": {
             "color": {
               "field": "Tier",
-              "title": "Airports Per One Million People",
+              "title": "Legend",
               "type": "quantitative",
 
               "legend": {
                   "labelExpr": "datum.label == '1' ? '<1': datum.label == '2' ? '1-5' : datum.label == '3' ? '5-10' : datum.label == '4' ? '10-15' : datum.label == '5' ? '15-20' : datum.label == '6' ? '20-30' : datum.label == '7' ? '30-40' : datum.label == '8' ? '40-100' : datum.label == '9' ? '100-500' : datum.label == '10' ? '500-1000' : '>1000'",
+                  "direction": "vertical",
                 },
 
               "bin": true,
@@ -350,13 +362,21 @@ window.onload = function() {
             "size": {
               "field": "routes",
               "type": "quantitative",
-              "legend": null
+              "legend": {
+                    
+                "title": "Number of Routes",
+                "orient": "bottom",
+                "titleBaseline": "middle",
+
+              }
             },
             "order": {
               "field": "routes",
               "sort": "descending"
             },
-            "color": {"value": "steelblue"},
+            "color": {
+              "value": "steelblue",
+          },
             "tooltip": [
               {"field": "iata", "type": "nominal", "title": "Airport IATA Code"},
               {"field": "routes", "type": "quantitative", "title": "Number of routes"}
