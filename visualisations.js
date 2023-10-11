@@ -364,7 +364,7 @@ window.onload = function() {
               "type": "quantitative",
               "legend": {
                     
-                "title": "Number of Routes",
+                "title": "Number of Routes Hosted",
 
                 "orient": "none",
                 "direction": "horizontal",
