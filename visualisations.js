@@ -4,8 +4,8 @@ window.onload = function() {
     Airport_Locations_Map_Spec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
         "title": {
-          "text": "Airport Locations 2023",
-          "anchor": "start"
+          "text": "Airport Location Distribution 2023",
+          "anchor": "middle"
         },
       
         "width": 700,
@@ -80,7 +80,7 @@ window.onload = function() {
                     "title": "Legend",
                     "orient": "right",
                     "titleAnchor": "middle",
-                    "labelExpr": "datum.label == 'Id' ? 'Airport': 'id'",
+                    "labelExpr": "datum.label == 'Id' ? 'Airport Location': 'id'",
 
                   }
               },
@@ -99,7 +99,7 @@ window.onload = function() {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "title": {
         "text": "Airports Per One Million People 2023",
-        "anchor": "start"
+        "anchor": "middle"
       },
 
       "width": 700,
@@ -301,7 +301,7 @@ window.onload = function() {
 
       "title": {
         "text": "Global Airport Routes 2023",
-        "anchor": "start"
+        "anchor": "middle"
       },
       
       "layer": [
@@ -353,7 +353,7 @@ window.onload = function() {
               "nearest": true,
               "fields": ["origin"]
             },
-            "bind": {"input": "text", "placeholder": "SYD", "name": "Airport by IATA Code: "}
+            "bind": {"input": "text", "placeholder": "SYD", "name": "Airport by IATA Code (E.g. MEL): "}
 
           }],
           "encoding": {
@@ -365,8 +365,14 @@ window.onload = function() {
               "legend": {
                     
                 "title": "Number of Routes",
-                "orient": "bottom",
-                "titleBaseline": "middle",
+
+                "orient": "none",
+                "direction": "horizontal",
+                "titleAlign": "center",
+                "titleAnchor": "left",
+                
+                "legendX": 380,
+                "legendY": 490,
 
               }
             },
@@ -382,6 +388,7 @@ window.onload = function() {
               {"field": "routes", "type": "quantitative", "title": "Number of routes"}
             ]
           }
+          
         },
 
         {
