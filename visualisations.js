@@ -50,15 +50,7 @@ window.onload = function() {
               "color": {"value": "#cccccc"}
             }
           },
-  
-          {
-            "mark": {"type": "geoshape", "stroke": "black"},
-            "encoding": {
-              "color": { 
-                "value": "gray",
-              },
-            }
-          },
+
 
           {
             "data": {
