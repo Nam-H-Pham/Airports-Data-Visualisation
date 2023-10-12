@@ -207,19 +207,20 @@ window.onload = function() {
         {
           "data": {
             "values": [
-              {"No Data": "no data", "type": "nominal"}
+              {"Surface": "No Data", "type": "nominal"},
+              {"Surface": "Ocean", "type": "nominal"},
             ]
           },
-          "mark": {"type": "geoshape"},
+          "mark": {"type": "geoshape", "stroke": "gray"},
           "encoding": {
             "color": {
-              "field": "No Data",
+              "field": "Surface",
               "legend": {
                 "symbolType": "square",
                 "title": ""
               },
               "scale": {
-                "range": ["gray"]
+                "range": [ "gray", "aliceblue"]
               }
             }
           }
@@ -351,6 +352,28 @@ window.onload = function() {
       },
       
       "layer": [
+
+        {
+          "data": {
+            "values": [
+              {"Surface": "Land", "type": "nominal"},
+              {"Surface": "Ocean", "type": "nominal"},
+            ]
+          },
+          "mark": {"type": "geoshape", "stroke": "gray"},
+          "encoding": {
+            "color": {
+              "field": "Surface",
+              "legend": {
+                "symbolType": "square",
+                "title": ""
+              },
+              "scale": {
+                "range": [ "gray", "aliceblue"]
+              }
+            }
+          }
+        },
 
         {
           "data": {"sphere": true},
