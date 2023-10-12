@@ -177,7 +177,28 @@ window.onload = function() {
               {"field": "Airports Per Million", "type": "quantitative", "format": ".2f"}
             ]
           }
-        }
+        },
+
+        {
+          "data": {
+            "values": [
+              {"No Data": "no data", "type": "nominal"}
+            ]
+          },
+          "mark": {"type": "geoshape"},
+          "encoding": {
+            "color": {
+              "field": "No Data",
+              "legend": {
+                "symbolType": "square",
+                "title": ""
+              },
+              "scale": {
+                "range": ["gray"]
+              }
+            }
+          }
+        },
       ],
 }
 
