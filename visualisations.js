@@ -10,8 +10,33 @@ window.onload = function() {
       
         "width": 700,
         "height": 400,
+
+        "data": {
+          "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport_locations.csv"
+        },
       
         "layer": [
+
+          {
+            "data": {
+              "values": [
+                {"Surface": "Land", "type": "nominal"},
+              ]
+            },
+            "mark": {"type": "geoshape"},
+            "encoding": {
+              "color": {
+                "field": "Surface",
+                "legend": {
+                  "symbolType": "circle",
+                  "title": ""
+                },
+                "scale": {
+                  "range": ["steelblue", "gray"]
+                }
+              }
+            }
+          },
 
           {
             "data": {"sphere": true},
@@ -52,12 +77,10 @@ window.onload = function() {
               "stroke": "black"
             }
           },
+          
             
 
           {
-            "data": {
-              "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport_locations.csv"
-            },
             "projection": {
               "type": "equalEarth"
             },
@@ -80,7 +103,7 @@ window.onload = function() {
                     "title": "Legend",
                     "orient": "right",
                     "titleAnchor": "middle",
-                    "labelExpr": "datum.label == 'Id' ? 'Airport Location': 'id'",
+                    "labelExpr": "datum.label == 'Id' ? 'Airport Location': 'Land'",
 
                   }
               },
@@ -91,7 +114,9 @@ window.onload = function() {
                 {"field": "longitude", "type": "quantitative"}
               ]
             }
-          }
+          },
+
+        
         ]
       }
 
