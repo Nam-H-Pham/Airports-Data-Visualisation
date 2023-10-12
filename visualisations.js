@@ -20,19 +20,20 @@ window.onload = function() {
           {
             "data": {
               "values": [
+                {"Surface": "Ocean", "type": "nominal"},
                 {"Surface": "Land", "type": "nominal"},
               ]
             },
-            "mark": {"type": "geoshape"},
+            "mark": {"type": "geoshape", "stroke": "gray"},
             "encoding": {
               "color": {
                 "field": "Surface",
                 "legend": {
-                  "symbolType": "circle",
+                  "symbolType": "square",
                   "title": ""
                 },
                 "scale": {
-                  "range": ["steelblue", "gray"]
+                  "range": ["steelblue", "gray", "aliceblue"]
                 }
               }
             }
@@ -103,7 +104,7 @@ window.onload = function() {
                     "title": "Legend",
                     "orient": "right",
                     "titleAnchor": "middle",
-                    "labelExpr": "datum.label == 'Id' ? 'Airport Location': 'Land'",
+                    "labelExpr": "datum.label == 'Id' ? 'Airport Location': datum.label == 'Ocean' ? 'Ocean': datum.label == 'Land' ? 'Land':'None'",
 
                   }
               },
