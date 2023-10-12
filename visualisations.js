@@ -29,7 +29,6 @@ window.onload = function() {
               "color": {
                 "field": "Surface",
                 "legend": {
-                  "symbolType": "square",
                   "title": ""
                 },
                 "scale": {
@@ -76,6 +75,11 @@ window.onload = function() {
               "type": "geoshape",
               "fill": "lightgray",
               "stroke": "black"
+            },
+            "encoding": {
+              "tooltip": [
+                {"field": "id", "type": "nominal"},
+              ]
             }
           },
           
@@ -95,11 +99,13 @@ window.onload = function() {
                 "field": "latitude",
                 "type": "quantitative"
               },
-              "size": {"value": 7},
+              "size": {"value": 4},
               "color": {
                   "value": "steelblue",
                   "datum": "Id",
                   "legend": {
+
+                    "symbolType": "circle",
                     
                     "title": "Legend",
                     "orient": "right",
@@ -109,11 +115,11 @@ window.onload = function() {
                   }
               },
 
-              "tooltip": [
-                {"field": "Id", "type": "nominal"},
-                {"field": "latitude", "type": "quantitative"},
-                {"field": "longitude", "type": "quantitative"}
-              ]
+              // "tooltip": [
+              //   {"field": "Id", "type": "nominal"},
+              //   {"field": "latitude", "type": "quantitative"},
+              //   {"field": "longitude", "type": "quantitative"}
+              // ]
             }
           },
 
@@ -186,7 +192,7 @@ window.onload = function() {
           "encoding": {
             "color": {
               "field": "Tier",
-              "title": "Legend",
+              "title": ["Airports Per","Million People"],
               "type": "quantitative",
 
               "legend": {
@@ -236,10 +242,10 @@ window.onload = function() {
 
       "title": {
         "text": "Number of Airports by Type Per Continent 2023",
-        "anchor": "start"
+        "anchor": "middle"
       },
     
-      "width": 300,
+      "width": 320,
       "height": 350,
       "background": "#f4f4f4",
     
@@ -259,15 +265,23 @@ window.onload = function() {
     
       "layer": [
         {
-        "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"},
-        "encoding": {"tooltip": [
-                      {"field": "Type", "type": "nominal", "title": "Airport Type"},
-                      {"field": "Count", "type": "quantitative", "title": "Number of Airports", "format": ",.2s"}
-                    ]}
-        },
+          "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"},
+          "encoding": {
+                        "tooltip": [
+                              {"field": "Type", "type": "nominal", "title": "Airport Type"},
+                              {"field": "Count", "type": "quantitative", "title": "Number of Airports", "format": ",.2s"}
+                            ],
+  
+                        "color": {
+                            "field": "Type",
+                            "scale": {"range": ["purple", "#4c78a8", "#f58518", "#72b7b2", "#54a24b"]}
+                          }
+  
+                      } 
+          },
 
         {
-          "mark": {"type": "text", "radiusOffset": 30},
+          "mark": {"type": "text", "radiusOffset": 30, "fontSize": 16},
           "encoding": {
                         "text": {"field": "Count", 
                         "type": "quantitative", 
@@ -281,9 +295,15 @@ window.onload = function() {
         "theta": {"field": "Count", "type": "quantitative", "stack": true},
         "radius": {"field": "Count", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
         "color": {"field": "Type", "type": "nominal", 
-        "legend": {"values": "Type"},
-
-        }
+        "legend": {
+                      "values": "Type",
+                      "orient": "bottom",
+                      "direction": "horizontal",
+                      "titleAlign": "center",
+                      "titleAnchor": "left",
+                  },
+        },
+        
       }
     }
 
@@ -367,7 +387,7 @@ window.onload = function() {
               "field": "Surface",
               "legend": {
                 "symbolType": "square",
-                "title": ""
+                "title": "Legend"
               },
               "scale": {
                 "range": [ "gray", "aliceblue"]
@@ -401,8 +421,10 @@ window.onload = function() {
             "format": {"type": "topojson", "feature": "countries"}
           }
         },
+
+
         {
-          "mark": {"type": "circle"},
+          "mark": {"type": "circle", "opacity": 0.5},
           "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport-routes.csv"},
           "transform": [
             {"aggregate": [{"op": "count", "as": "routes"}], "groupby": ["origin"]},
@@ -420,7 +442,6 @@ window.onload = function() {
             "select": {
               "type": "point",
               "on": "mouseover",
-              "nearest": true,
               "fields": ["origin"]
             },
             "bind": {"input": "text", "placeholder": "SYD", "name": "Airport by IATA Code (E.g. MEL): "}
@@ -433,9 +454,8 @@ window.onload = function() {
               "field": "routes",
               "type": "quantitative",
               "legend": {
-                    
-                "title": "Number of Routes Hosted",
 
+                "title": "Number of Routes Hosted",
                 "orient": "none",
                 "direction": "horizontal",
                 "titleAlign": "center",
@@ -451,7 +471,14 @@ window.onload = function() {
               "sort": "descending"
             },
             "color": {
-              "value": "steelblue",
+              "field": "routes",
+              "scale": {
+                "type": "linear",
+                "range": ["steelblue", "blue", "purple"],
+              },
+              "legend": {
+                "title": ["Number of ","Routes Hosted"],
+              },
           },
             "tooltip": [
               {"field": "iata", "type": "nominal", "title": "Airport IATA Code"},
@@ -462,7 +489,7 @@ window.onload = function() {
         },
 
         {
-          "mark": {"type": "rule", "color": "red", "opacity": 0.35},
+          "mark": {"type": "rule", "color": "red", "opacity": 0.2 ,"strokeWidth": 0.7},
           "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport-routes.csv"},
           "transform": [
             {"filter": {"param": "org", "empty": false}},
@@ -489,7 +516,7 @@ window.onload = function() {
             "longitude": {"field": "longitude"},
             "latitude2": {"field": "lat2"},
             "longitude2": {"field": "lon2"}
-          }
+          },
         },
       ],
       "projection": {"type": "equalEarth"},
