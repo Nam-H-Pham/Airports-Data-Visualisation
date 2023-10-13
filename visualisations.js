@@ -415,6 +415,24 @@ window.onload = function() {
         },
 
         {
+          "data": {
+            "values": [
+              {"Surface": "Route", "type": "nominal"},
+            ]
+          },
+          "mark": {"type": "geoshape", "stroke": "red"},
+          "encoding": {
+            "color": {
+              "field": "Surface",
+              "legend": {
+                "symbolType": "stroke",
+                "title": ""
+              },
+            }
+          }
+        },
+
+        {
           "data": {"sphere": true},
           "mark": {"type": "geoshape", "fill": "aliceblue"}
         },
@@ -471,6 +489,7 @@ window.onload = function() {
             "size": {
               "field": "routes",
               "type": "quantitative",
+              
               "legend": {
 
                 "title": "Number of Routes Hosted",
