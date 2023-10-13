@@ -2,122 +2,133 @@
 
 window.onload = function() {
     Airport_Locations_Map_Spec = {
-        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-        "title": {
-          "text": "Airport Location Distribution 2023",
-          "anchor": "middle"
-        },
-      
-        "width": 700,
-        "height": 400,
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "title": {
+        "text": "Airport Location Distribution 2023",
+        "anchor": "middle"
+      },
+    
+      "width": 700,
+      "height": 400,
 
-        "data": {
-          "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport_locations.csv"
-        },
-      
-        "layer": [
-
-          {
-            "data": {
-              "values": [
-                {"Surface": "Ocean", "type": "nominal"},
-                {"Surface": "Land", "type": "nominal"},
-              ]
-            },
-            "mark": {"type": "geoshape", "stroke": "gray"},
-            "encoding": {
-              "color": {
-                "field": "Surface",
-                "legend": {
-                  "title": ""
-                },
-                "scale": {
-                  "range": ["steelblue", "gray", "aliceblue"]
-                }
-              }
-            }
-          },
-
-          {
-            "data": {"sphere": true},
-            "mark": {"type": "geoshape", "fill": "aliceblue"}
-          },
-          
-          {
-            "data": {"graticule": {"stepMinor": [15, 15]}},
-            "mark": "geoshape",
-            "encoding": {
-              "color": {"value": "#cccccc"}
-            }
-          },
-
-
-          {
-            "data": {
-              "url": "https://raw.githubusercontent.com/vega/vega-datasets/master/data/world-110m.json",
-              "format": {
-                "type": "topojson",
-                "feature": "countries"
-              }
-            },
-            "projection": {
-              "type": "equalEarth"
-            },
-            "mark": {
-              "type": "geoshape",
-              "fill": "lightgray",
-              "stroke": "black"
-            },
-            "encoding": {
-              "tooltip": [
-                {"field": "id", "type": "nominal"},
-              ]
-            }
-          },
-          
-            
-
-          {
-            "projection": {
-              "type": "equalEarth"
-            },
-            "mark": "circle",
-            "encoding": {
-              "longitude": {
-                "field": "longitude",
-                "type": "quantitative"
-              },
-              "latitude": {
-                "field": "latitude",
-                "type": "quantitative"
-              },
-              "size": {"value": 4},
-              "color": {
-                  "value": "steelblue",
-                  "datum": "Id",
-                  "legend": {
-
-                    "symbolType": "circle",
-                    
-                    "title": "Legend",
-                    "orient": "right",
-                    "titleAnchor": "middle",
-                    "labelExpr": "datum.label == 'Id' ? 'Airport Location': datum.label == 'Ocean' ? 'Ocean': datum.label == 'Land' ? 'Land':'None'",
-
-                  }
-              },
-
-              // "tooltip": [
-              //   {"field": "Id", "type": "nominal"},
-              //   {"field": "latitude", "type": "quantitative"},
-              //   {"field": "longitude", "type": "quantitative"}
-              // ]
-            }
-          },
-
-        
-        ]
+      "data": {
+      "url": "https://raw.githubusercontent.com/vega/vega-datasets/master/data/world-110m.json",
+      "format": {
+        "type": "topojson",
+        "feature": "countries"
       }
+    },
+
+    "projection": {
+      "type": "equalEarth"
+    },
+
+
+    "transform": [{
+      "lookup": "id",
+
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/Nam-H-Pham/Airports-Data-Visualisation/main/data/countries_counts.csv"
+        },
+        "key": "id",
+        "fields": ["Number of Airports", "Country"]
+      }
+
+    },
+    ],
+
+
+    
+      "layer": [
+
+        {
+          "data": {
+            "values": [
+              {"Surface": "Ocean", "type": "nominal"},
+              {"Surface": "Land", "type": "nominal"},
+            ]
+          },
+          "mark": {"type": "geoshape", "stroke": "gray"},
+          "encoding": {
+            "color": {
+              "field": "Surface",
+              "legend": {
+                "title": ""
+              },
+              "scale": {
+                "range": ["steelblue", "gray", "aliceblue"]
+              }
+            }
+          }
+        },
+
+        {
+          "data": {"sphere": true},
+          "mark": {"type": "geoshape", "fill": "aliceblue"}
+        },
+        
+        {
+          "data": {"graticule": {"stepMinor": [15, 15]}},
+          "mark": "geoshape",
+          "encoding": {
+            "color": {"value": "#cccccc"}
+          }
+        },
+
+
+        {
+          "mark": {
+            "type": "geoshape",
+            "fill": "lightgray",
+            "stroke": "black"
+          },
+          "encoding": {
+            "tooltip": [
+              {"field": "Country", "type": "nominal"},
+              {"field": "Number of Airports", "type": "quantitative", "format": ",.2s"}
+            ]
+          }
+        },
+        
+          
+
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airport_locations.csv"
+          },
+          "mark": "circle",
+          "encoding": {
+            "longitude": {
+              "field": "longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "latitude",
+              "type": "quantitative"
+            },
+            "size": {"value": 4},
+            "color": {
+                "value": "steelblue",
+                "datum": "Id",
+                "legend": {
+
+                  "symbolType": "circle",
+                  
+                  "title": "Legend",
+                  "orient": "right",
+                  "titleAnchor": "middle",
+                  "labelExpr": "datum.label == 'Id' ? 'Airport Location': datum.label == 'Ocean' ? 'Ocean': datum.label == 'Land' ? 'Land':'None'",
+
+                }
+            },
+
+          }
+        },
+
+      
+      ]
+    }
 
     Airports_Per_Million_Map_Spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -153,7 +164,22 @@ window.onload = function() {
           "fields": ["Tier", "Iso Code", "Airports Per Million"]
         }
 
-      }],
+      },
+
+      {
+        "lookup": "id",
+  
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/Nam-H-Pham/Airports-Data-Visualisation/main/data/countries_counts.csv"
+          },
+          "key": "id",
+          "fields": ["Number of Airports", "Country"]
+        }
+  
+      },
+    
+      ],
 
       "layer": [
 
@@ -196,7 +222,7 @@ window.onload = function() {
             },
 
             "tooltip": [
-              {"field": "Iso Code", "type": "nominal"},
+              {"field": "Country", "type": "nominal"},
 
               {"field": "Airports Per Million", "type": "quantitative", "format": ".2f"}
             ]
@@ -436,7 +462,7 @@ window.onload = function() {
               "on": "mouseover",
               "fields": ["origin"]
             },
-            "bind": {"input": "text", "placeholder": "SYD", "name": "Airport by IATA Code (E.g. MEL): "}
+            "bind": {"input": "text", "placeholder": "SYD", "name": "Airport of Origin by IATA Code (E.g. MEL): "}
 
           }],
           "encoding": {
