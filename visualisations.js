@@ -3,6 +3,7 @@
 window.onload = function() {
     Airport_Locations_Map_Spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "A dot distribution map of the locations of airports in 2023.",
       "title": {
         "text": "Airport Location Distribution 2023",
         "anchor": "middle"
@@ -132,6 +133,7 @@ window.onload = function() {
 
     Airports_Per_Million_Map_Spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "A choropleth map of the number of airports per million people in 2023.",
       "title": {
         "text": "Airports Per One Million People 2023",
         "anchor": "middle"
@@ -256,7 +258,7 @@ window.onload = function() {
 
     Airport_Type_Distribution_Spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "description": "A simple radial chart with embedded data.",
+      "description": "An interactive radial chart of the number of airports by type per continent in 2023.",
 
       "title": {
         "text": "Number of Airports by Type Per Continent 2023",
@@ -325,63 +327,10 @@ window.onload = function() {
       }
     }
 
-    Airport_Continents_Spec = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "description": "A scatterplot showing different types of airports in different continents.",
-      "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/airports_continents.csv"},
-
-      "width": 600,
-      "height": 400,
-    
-      "layer": [
-        {
-          "mark": "point",
-          "encoding": {
-            "x": {"field": "Region", "type": "ordinal"},
-            "y": {"field": "Airports", "type": "quantitative"}}
-        },
-      ]
-    }
-
-    Airport_Top_Countries_Spec = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "description": "A simple bar chart with embedded data.",
-      "data": {"url": "https://raw.githubusercontent.com/Nam-H-Pham/Earthquakes-Visualisation/main/data/top_countries.csv"},
-    
-      "width": 600,
-      "height": 300,
-    
-      "layer": [
-    
-        {
-          "mark": {"type": "bar", "width": 5, "color": "#d8b36a"},
-          "encoding": {
-            "x": {"field": "Name", "type": "nominal", 
-                  "axis": {"labelAngle": 0},
-                  "sort": null,
-                  "title": "Country"
-                  },
-            "y": {"field": "Value", "type": "quantitative", "title": "Number of Airports"}
-          }
-        },
-    
-        {
-              "mark": {"type": "circle", "size": 200, "color": "#d8b36a"},
-              "encoding": {
-                "x": {"field": "Name", 
-                      "type": "ordinal",
-                      "sort": null
-                      },
-                "y": {"field": "Value", "type": "quantitative"}
-                },
-        },
-    
-      ]
-    }
 
     Airport_Routes_Map_Spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "description": "An interactive visualization of connections among major U.S. airports in 2008. Based on a U.S. airports example by Mike Bostock.",
+      "description": "An interactive visualization of connections among global airports in 2017.",
       "width": 600,
       "height": 400,
 
@@ -566,7 +515,5 @@ window.onload = function() {
     vegaEmbed("#world-map-airport-locations", Airport_Locations_Map_Spec);
     vegaEmbed("#world-map-airports-per-million", Airports_Per_Million_Map_Spec);
     vegaEmbed("#radial-plot-airport-types", Airport_Type_Distribution_Spec);
-    vegaEmbed("#scatter-plot-airport-continents", Airport_Continents_Spec);
-    vegaEmbed("#lollipop-plot-airport-top-countries", Airport_Top_Countries_Spec);
     vegaEmbed("#world-map-airports-routes", Airport_Routes_Map_Spec);
 }
