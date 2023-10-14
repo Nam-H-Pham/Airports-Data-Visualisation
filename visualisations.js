@@ -58,7 +58,7 @@ window.onload = function() {
                 "title": ""
               },
               "scale": {
-                "range": ["steelblue", "gray", "aliceblue"]
+                "range": ["steelblue", "lightgray", "aliceblue"]
               }
             }
           }
@@ -357,7 +357,7 @@ window.onload = function() {
                 "title": "Legend"
               },
               "scale": {
-                "range": [ "gray", "aliceblue"]
+                "range": [ "lightgray", "aliceblue"]
               }
             }
           }
